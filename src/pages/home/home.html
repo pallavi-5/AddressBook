@@ -1,0 +1,120 @@
+<ion-header text-center>
+  <ion-navbar color="primary">
+    <ion-title >
+    	<ion-icon name="bookmarks"></ion-icon>
+      ADDRESSBOOK
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<!-- <ion-searchbar (keyup)="onKeyUp($event)"></ion-searchbar> -->
+  <div>
+  <ion-segment [(ngModel)]="segments">
+    <ion-segment-button value="contacts">
+    	<!--Basic: auto-select the icon based on the platform -->
+  <ion-icon name="contact"></ion-icon>
+     Contacts
+    </ion-segment-button>
+    <ion-segment-button value="groups">
+    	<!--Basic: auto-select the icon based on the platform -->
+  <ion-icon name="contacts"></ion-icon>             
+      Groups
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+ 
+<div [ngSwitch]="segments">
+	<ion-list *ngSwitchCase="'contacts'">
+		<!--<ion-grid>
+  <ion-row padding text-center>
+   <ion-icon name="person" item-start></ion-icon>
+    <ion-col>Abhishek</ion-col>
+    <ion-col> 9987654321</ion-col>
+    <ion-col>  Family </ion-col>
+  </ion-row>
+  <ion-row padding text-center>
+  	<ion-icon name="person" item-start></ion-icon>
+     <ion-col>Arjun</ion-col>
+    <ion-col> 8887654321</ion-col>
+    <ion-col>  Friend </ion-col>
+  </ion-row>
+   <ion-row padding text-center>
+   	<ion-icon name="person" item-start></ion-icon>
+     <ion-col>Krish</ion-col>
+    <ion-col> 7774321987</ion-col>
+    <ion-col>  Friend </ion-col>
+  </ion-row>
+   <ion-row padding text-center>
+   	<ion-icon name="person" item-start></ion-icon>
+     <ion-col>Rohan</ion-col>
+    <ion-col> 8557654321</ion-col>
+    <ion-col>  Others </ion-col>
+  </ion-row>
+   <ion-row padding text-center>
+   	<ion-icon name="person" item-start></ion-icon>
+     <ion-col>Sanaya</ion-col>
+    <ion-col> 8877664321</ion-col>
+    <ion-col>  Family </ion-col>
+  </ion-row>
+   <ion-row padding text-center>
+   	<ion-icon name="person" item-start></ion-icon>
+     <ion-col>Tia</ion-col>
+    <ion-col> 9887654321</ion-col>
+    <ion-col>  Friend </ion-col>
+  </ion-row>
+   <ion-row padding text-center>
+   	<ion-icon name="person" item-start></ion-icon>
+     <ion-col>Zoya</ion-col>
+    <ion-col> 9997654321</ion-col>
+    <ion-col>  Others </ion-col>
+  </ion-row>
+</ion-grid> -->
+	<ion-grid *ngFor="let place of places">
+	<ion-row >
+	<ion-col>	<ion-icon name="person" item-start></ion-icon></ion-col>
+     <ion-col>{{place.displayName}}</ion-col>
+    <ion-col>{{place.phnumber}}</ion-col>
+    <ion-col>{{place.phtype}}  </ion-col>
+	</ion-row>
+</ion-grid>
+	</ion-list>
+	<ion-list *ngSwitchCase="'groups'">
+		<br><br>
+		<tr>
+			<a (click)="gofamily()">
+			<td>
+				<div style="padding:50px 50px 75px 170px">
+		<img width="100" height="100" src="C:/Users/pallavi/AddressBook/src/assets/imgs/family2.png"/>
+	<h1>FAMILY</h1>
+	</div> 
+	</td>
+</a>
+<a (click)="gofriends()">
+	<td>
+		<div style="padding:50px 50px 150px 290px">
+		<img width="100" height="100" src="C:/Users/pallavi/AddressBook/src/assets/imgs/friends.png"/>
+		<h1> FRIENDS </h1>
+	</div>
+		</td>
+	</a>
+	<a (click)="goothers()">
+		<td>
+		<div style="padding:50px 50px 150px 280px">
+		<img width="100" height="140" src="C:/Users/pallavi/AddressBook/src/assets/imgs/others.png"/>
+		<h1>OTHERS</h1>
+	</div>
+		</td>
+	</a>
+	</tr>
+	</ion-list>
+</div>
+
+
+
+<ion-footer>
+
+	<button ion-button full (click)="createcontact()"><tr><td><ion-icon name="person-add" item-start></ion-icon></td><td>CREATE NEW CONTACT</td></tr></button>
+</ion-footer>
+</ion-content>

@@ -1,0 +1,9 @@
+After cloning the repository
+open command prompt and goto the "AddressBook" folder using 'cd' command
+and then run "ionic serve" on the terminal,(you may need to install 'npm modules' before using this command)
+browser opens the app.
+
+Create contacts and they get added to contact list
+Created contacts are visible by clicking "contacts" button.
+Groups are visible by clicking "Groups".
+Each group contains their respective contacts.
